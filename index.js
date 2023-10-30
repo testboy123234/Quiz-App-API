@@ -10,14 +10,7 @@ import quizRoutes from "./routes/quizRoutes.js";
 const app = express();
 
 app.use(express.json());
-
-const corsOptions = {
-  origin: process.env.ALLOWED_ORIGIN || "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type"],
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Connected to Backend!" });
